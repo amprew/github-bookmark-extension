@@ -6,7 +6,6 @@ export default ({
   repo,
   title = '',
   pathToFile,
-  href,
   createdAt
 }) => {
   const bookmarkPath = `/_bookmark_/${id}`;

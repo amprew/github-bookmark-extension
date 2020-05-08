@@ -1,0 +1,28 @@
+{
+  "name": "Getting Started Example",
+  "version": "1.4",
+  "description": "Build an Extension!",
+  "permissions": [
+    "history",
+    "tabs"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["dist/bookmark-add.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://github.com/_bookmarks_", "https://github.com/_bookmarks_/"],
+      "js": ["dist/bookmark-list.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://github.com/_bookmark_/*"],
+      "js": ["dist/bookmark-show.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "manifest_version": 2
+}

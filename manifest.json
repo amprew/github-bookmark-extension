@@ -1,17 +1,12 @@
 {
-  "name": "Getting Started Example",
-  "version": "1.4",
-  "description": "Build an Extension!",
-  "permissions": [
-    "history",
-    "tabs"
-  ],
+  "name": "Github Bookmarks",
+  "version": "0.1",
+  "description": "A Google Chrome extension for bookmarking your favourite snippets of code! Keep less in your head and learn more.",
   "content_scripts": [
     {
       "matches": ["https://github.com/*"],
       "js": ["dist/bookmark-add.js"],
-      "run_at": "document_start",
-      "all_frames": true
+      "run_at": "document_start"
     },
     {
       "matches": ["https://github.com/_bookmarks_", "https://github.com/_bookmarks_/"],

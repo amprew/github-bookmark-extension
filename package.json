@@ -1,7 +1,7 @@
 {
-  "name": "js-github-debug",
-  "version": "1.0.0",
-  "description": "",
+  "name": "github-bookmark-extension",
+  "version": "0.1.0",
+  "description": "A Google Chrome extension for bookmarking your favourite snippets of code! Keep less in your head and learn more.",
   "main": "index.js",
   "keywords": [],
   "author": "",

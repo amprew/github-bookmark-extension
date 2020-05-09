@@ -27,7 +27,7 @@ export default ({
 
           <h1 class="gh-header-title">
             <span class="js-bookmark-title">
-              ${title}
+              ${title || '(no title)'}
             </span>
           </h1>
         </div>

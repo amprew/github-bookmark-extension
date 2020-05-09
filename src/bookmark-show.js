@@ -6,8 +6,6 @@ import { waitForElement } from './shared/utils';
 import bookmarkShowTemplate from './templates/bookmarks/show';
 
 (async () => {
-  document.title = 'Bookmarks';
-
   const [, id] = window.location.pathname.match(/_bookmark_\/(.+)/);
   const bookmark = findBookmark(id);
 
@@ -20,7 +18,8 @@ import bookmarkShowTemplate from './templates/bookmarks/show';
   const applicationMain = await waitForElement('.application-main');
   applicationMain.className = 'application-main';
   render(bookmarkShowTemplate(bookmark), applicationMain);
-  
+  document.title = 'Bookmarks';
+
   const ghHeader = document.querySelector('.gh-header');
   const bookmarkTitle = document.querySelector('.js-bookmark-title');
   const editTitleButton = document.querySelector('.js-edit-title');

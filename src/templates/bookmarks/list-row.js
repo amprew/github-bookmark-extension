@@ -4,7 +4,7 @@ export default ({
   id,
   org,
   repo,
-  title = '',
+  title = '(no title)',
   pathToFile,
   createdAt
 }) => {

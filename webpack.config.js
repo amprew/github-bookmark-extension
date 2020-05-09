@@ -1,5 +1,5 @@
-const webpack = require('webpack');
 const path = require('path');
+const TerserPlugin = require('terser-webpack-plugin');
 
 const IS_PRODUCTION_BUILD = process.env.NODE_ENV === 'production';
 
@@ -26,6 +26,24 @@ module.exports = {
           }
         ]
       }
+    ]
+  },
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        test: /\.js(\?.*)?$/i,
+        parallel: true,
+        cache: !IS_PRODUCTION_BUILD,
+        terserOptions: {
+          mangle: true,
+          output: {
+            beautify: false,
+            comments: false
+          },
+          compress: true,
+          warnings: false
+        }
+      })
     ]
   }
 };

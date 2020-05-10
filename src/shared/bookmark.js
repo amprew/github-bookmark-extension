@@ -2,7 +2,7 @@ import store from 'store';
 import { v4 as uuidv4 } from 'uuid';
 
 export const addBookmark = (bookmark) => {
-  const bookmarks = store.get('bookmarks');
+  const bookmarks = store.get('bookmarks') || [];
 
   const bookmarkWithId = Object.assign({}, bookmark, { id: uuidv4() });
 

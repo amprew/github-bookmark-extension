@@ -1,4 +1,4 @@
-import store from 'store';
+import store from 'store2';
 import { v4 as uuidv4 } from 'uuid';
 
 export const addBookmark = (bookmark) => {

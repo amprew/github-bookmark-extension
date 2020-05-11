@@ -13,7 +13,7 @@ export const pageUpdateInit = () => {
       window.postMessage('page-change', '*');
       return pushState.apply(this, arguments);
     };
-  });  
+  });
 };
 
 export const waitForTime = (milliseconds) => {
@@ -22,7 +22,7 @@ export const waitForTime = (milliseconds) => {
   });
 }
 
-export const waitForElement = async(selector, retries = 10, timeout = 50) => {
+export const waitForElement = async (selector, retries = 10, timeout = 50) => {
   if(retries <= 0) throw new Error(`Element not found: ${selector}.`);
 
   const element = document.querySelector(selector);
@@ -31,5 +31,19 @@ export const waitForElement = async(selector, retries = 10, timeout = 50) => {
 
   await waitForTime(timeout);
 
-  return await waitForElement(selector, retries - 1);
+  return await waitForElement(selector, retries - 1, timeout);
+};
+
+export const waitForElementText = async (selector, text, retries = 10, timeout = 50) => {
+  if(retries <= 0) throw new Error(`Element not found: '${selector}' with text ${text}.`);
+
+  const elements = Array.from(document.querySelectorAll(selector));
+
+  const matchingTextElements = elements.filter(e => e.textContent.includes(text));
+
+  if (matchingTextElements.length) return matchingTextElements;
+
+  await waitForTime(timeout);
+
+  return await waitForElementText(selector, text, retries - 1, timeout);
 };

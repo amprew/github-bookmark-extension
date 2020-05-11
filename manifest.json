@@ -10,7 +10,7 @@
   "content_scripts": [
     {
       "matches": ["https://github.com/*"],
-      "js": ["dist/bookmark-add.js"],
+      "js": ["dist/bookmark-add.js", "dist/bookmark-header-link.js"],
       "run_at": "document_start"
     },
     {

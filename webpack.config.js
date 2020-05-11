@@ -9,7 +9,8 @@ module.exports = {
   entry: {
     'bookmark-list': './src/pages/bookmark-list.js',
     'bookmark-add': './src/pages/bookmark-add.js',
-    'bookmark-show': './src/pages/bookmark-show.js'
+    'bookmark-show': './src/pages/bookmark-show.js',
+    'bookmark-header-link': './src/pages/bookmark-header-link.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

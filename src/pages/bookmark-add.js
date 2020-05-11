@@ -1,4 +1,4 @@
-import { pageUpdateInit, waitForElement, waitForElementText } from '../shared/utils';
+import { pageUpdateInit, waitForElement } from '../shared/utils';
 
 import { addBookmark } from '../shared/bookmark';
 

@@ -39,9 +39,9 @@ export const waitForElementText = async (selector, text, retries = 10, timeout =
 
   const elements = Array.from(document.querySelectorAll(selector));
 
-  const matchingTextElements = elements.filter(e => e.textContent.includes(text));
+  const matchingTextElements = elements.find(e => e.textContent.includes(text));
 
-  if (matchingTextElements.length) return matchingTextElements;
+  if (matchingTextElements) return matchingTextElements;
 
   await waitForTime(timeout);
 

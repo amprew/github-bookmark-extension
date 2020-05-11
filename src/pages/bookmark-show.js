@@ -1,9 +1,9 @@
 import { render } from 'lit-html';
 
-import { updateBookmark, findBookmark, removeBookmark } from './shared/bookmark';
-import { waitForElement } from './shared/utils';
+import { updateBookmark, findBookmark, removeBookmark } from '../shared/bookmark';
+import { waitForElement } from '../shared/utils';
 
-import bookmarkShowTemplate from './templates/bookmarks/show';
+import bookmarkShowTemplate from '../templates/bookmarks/show';
 
 (async () => {
   const [, id] = window.location.pathname.match(/_bookmark_\/(.+)/);

@@ -1,9 +1,9 @@
 import { render } from 'lit-html';
 
-import { getAllBookmarks } from './shared/bookmark';
-import { waitForElement } from './shared/utils';
+import { getAllBookmarks } from '../shared/bookmark';
+import { waitForElement } from '../shared/utils';
 
-import bookmarksListTemplate from './templates/bookmarks/list';
+import bookmarksListTemplate from '../templates/bookmarks/list';
 
 (async () => {
   const bookmarks = getAllBookmarks();

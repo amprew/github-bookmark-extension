@@ -7,9 +7,9 @@ module.exports = {
   mode: IS_PRODUCTION_BUILD ? 'production' : 'development',
   devtool: IS_PRODUCTION_BUILD ? 'source-map' : 'eval-source-map',
   entry: {
-    'bookmark-list': './src/bookmark-list.js',
-    'bookmark-add': './src/bookmark-add.js',
-    'bookmark-show': './src/bookmark-show.js'
+    'bookmark-list': './src/pages/bookmark-list.js',
+    'bookmark-add': './src/pages/bookmark-add.js',
+    'bookmark-show': './src/pages/bookmark-show.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

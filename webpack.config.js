@@ -5,7 +5,7 @@ const IS_PRODUCTION_BUILD = process.env.NODE_ENV === 'production';
 
 module.exports = {
   mode: IS_PRODUCTION_BUILD ? 'production' : 'development',
-  devtool: IS_PRODUCTION_BUILD ? 'source-map' : 'eval-source-map',
+  devtool: IS_PRODUCTION_BUILD ? false : 'eval-source-map',
   entry: {
     'bookmark-list': './src/pages/bookmark-list.js',
     'bookmark-add': './src/pages/bookmark-add.js',
@@ -33,6 +33,7 @@ module.exports = {
     minimizer: [
       new TerserPlugin({
         test: /\.js(\?.*)?$/i,
+        extractComments: false,
         parallel: true,
         cache: !IS_PRODUCTION_BUILD,
         terserOptions: {

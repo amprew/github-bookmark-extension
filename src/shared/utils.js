@@ -47,3 +47,20 @@ export const waitForElementText = async (selector, text, retries = 10, timeout =
 
   return await waitForElementText(selector, text, retries - 1, timeout);
 };
+
+export const waitForUrl = async (urlMatcher, retries = 5, timeout = 50) => {
+  if(retries <= 0) throw new Error(`URL never matched: '${url}'.`);
+
+  let match = false;
+  if(urlMatcher instanceof RegExp) {
+    match = urlMatcher.test(window.location.pathname);
+  } else {
+    match = urlMatcher === window.location.pathname;
+  }
+
+  if(match) return match;
+
+  await waitForTime(timeout);
+
+  return await waitForUrl(urlMatcher, retries - 1, timeout);
+};

@@ -1,4 +1,4 @@
-import { pageUpdateInit, waitForElement } from '../shared/utils';
+import { pageUpdateInit, waitForElement, waitForUrl } from '../shared/utils';
 
 import { addBookmark } from '../shared/bookmark';
 
@@ -51,7 +51,7 @@ const addTooltipBookmarkAction = async () => {
 };
 
 const addHeaderBookmarkAction = async () => {
-  const editButton = await waitForElement('.octicon-pencil', 5, 500);
+  const editButton = await waitForElement('.Box-header .octicon-pencil', 10, 250);
   const listGroup = editButton.closest('.btn-octicon').parentNode;
 
   listGroup.insertAdjacentHTML(
@@ -68,10 +68,8 @@ const addHeaderBookmarkAction = async () => {
   headerBookmarkBtn.addEventListener('click', handleBookmarkCreate);
 };
 
-const addBookmarkControl = () => {
-  const { pathname } = window.location;
-
-  if(!pathname.match(/^\/.+?\/.+?\/blob\//)) { return; }
+const addBookmarkControl = async () => {
+  await waitForUrl(/^\/.+?\/.+?\/blob\//);
 
   addTooltipBookmarkAction();
   addHeaderBookmarkAction();

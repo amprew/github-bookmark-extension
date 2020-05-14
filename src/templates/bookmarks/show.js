@@ -1,11 +1,13 @@
 import { html } from 'lit-html';
 
 import textBox from '../shared/text-box';
+import notesTemplate from './show-notes';
 
 export default ({
   title = '',
   pathToFile,
   href,
+  notes
 }) => {
   const getLineRef = () => {
     const lineMatch = href.match(/L(\d+)-?L?(\d+)?/i);
@@ -69,9 +71,13 @@ export default ({
         </div>
       </div>
 
-      ${textBox(html`<a href="${href}">View bookmark</a>`)}
+      ${textBox(html`
+        <div class="text-center p-3">
+          <a href="${href}">View bookmark</a>
+        </div>
+      `)}
 
-      ${textBox('Notes coming soon.')}
+      ${notesTemplate(notes)}
     </div>
   `;
 };

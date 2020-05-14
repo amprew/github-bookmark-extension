@@ -49,7 +49,7 @@ export const waitForElementText = async (selector, text, retries = 10, timeout =
 };
 
 export const waitForUrl = async (urlMatcher, retries = 5, timeout = 50) => {
-  if(retries <= 0) throw new Error(`URL never matched: '${url}'.`);
+  if(retries <= 0) throw new Error(`URL never matched: '${urlMatcher}'.`);
 
   let match = false;
   if(urlMatcher instanceof RegExp) {

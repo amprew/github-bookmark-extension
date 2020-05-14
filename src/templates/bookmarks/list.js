@@ -15,7 +15,9 @@ export default (bookmarks) => {
           ${
             bookmarks.length ?
               bookmarks.map(listRowTemplate) :
-              textBox('No bookmarks found.')
+              textBox(html`
+                <div class="text-center p-3">No bookmarks found.</div>
+              `)
           }
         </div>
       </div>

@@ -15,5 +15,5 @@ const postProcess = (markdownHTML) => {
 }
 
 const addCodePreWrapper = (html) => {
-  return html.replace(/(<pre>.+?<\/pre>)/g, '<div class="highlight">$1</div>');
+  return html.replace(/(<pre.+?>.+?<\/pre>)/g, '<div class="highlight">$1</div>');
 };

@@ -69,10 +69,12 @@ const addHeaderBookmarkAction = async () => {
 };
 
 const addBookmarkControl = async () => {
-  await waitForUrl(/^\/.+?\/.+?\/blob\//);
-
-  addTooltipBookmarkAction();
-  addHeaderBookmarkAction();
+  waitForUrl(/^\/.+?\/.+?\/blob\//)
+    .then(() => {
+      addTooltipBookmarkAction();
+      addHeaderBookmarkAction();
+    })
+    .catch(() => {});
 };
 
 addBookmarkControl();

@@ -60,13 +60,13 @@ import bookmarkShowTemplate from '../templates/bookmarks/show';
     }
   };
 
+  if(!bookmark.notes) {
+    notesToggle();
+  }
+
   if(!bookmark.title) {
     headerToggle();
     editTitleInput.focus();
-  }
-
-  if(!bookmark.notes) {
-    notesToggle();
   }
 
   editTitleButton.addEventListener('click', () => {

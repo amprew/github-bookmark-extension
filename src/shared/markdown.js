@@ -1,6 +1,6 @@
 import marked from 'marked';
 
-export const parseMd = (markdown) => postProcess(marked(markdown));
+export const parseMd = (markdown) => postProcess(marked(markdown || ''));
 
 const postProcess = (markdownHTML) => {
   const parsers = [addCodePreWrapper];

@@ -21,7 +21,7 @@ export default (notes) => {
           class="d-block border-0 p-3 js-notes-textarea"
           spellcheck="false"
           style="min-width: 100%;"
-          placeholder="Add notes here..."
+          placeholder="Add notes here...\n(p.s. markdown available.)"
           hidden
         >${notes}</textarea>
       </div>

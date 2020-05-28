@@ -51,7 +51,8 @@ const addTooltipBookmarkAction = async () => {
 };
 
 const addHeaderBookmarkAction = async () => {
-  const editButton = await waitForElement('.Box-header .octicon-pencil', 10, 250);
+  const editButton = await waitForElement('.Box-header .octicon-trashcan', 10, 250);
+
   const listGroup = editButton.closest('.btn-octicon').parentNode;
 
   listGroup.insertAdjacentHTML(

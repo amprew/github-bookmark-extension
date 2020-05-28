@@ -19,7 +19,7 @@ import bookmarkShowTemplate from '../templates/bookmarks/show';
     return;
   }
 
-  const applicationMain = await waitForElement('.application-main');
+  const applicationMain = await waitForElement('.application-main', 10, 20);
   applicationMain.className = 'application-main';
   render(bookmarkShowTemplate(bookmark), applicationMain);
 

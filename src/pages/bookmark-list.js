@@ -10,7 +10,7 @@ import bookmarksListTemplate from '../templates/bookmarks/list';
 
   const bookmarks = getAllBookmarks();
 
-  const applicationMain = await waitForElement('.application-main');
+  const applicationMain = await waitForElement('.application-main', 10, 20);
   applicationMain.className = 'application-main';
   render(bookmarksListTemplate(bookmarks), applicationMain);
 })();

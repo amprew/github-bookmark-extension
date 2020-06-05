@@ -9,7 +9,7 @@ module.exports = {
   entry: {
     'bookmark-list': './src/pages/bookmarks/list/index.js',
     'bookmark-add': './src/pages/bookmark-add.js',
-    'bookmark-show': './src/pages/bookmark-show.js',
+    'bookmark-show': './src/pages/bookmarks/show/index.js',
     'bookmark-header-link': './src/pages/bookmark-header-link.js',
   },
   output: {

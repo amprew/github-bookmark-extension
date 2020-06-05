@@ -8,11 +8,11 @@ import { waitForElement } from '../../../shared/utils';
 /** @jsx h */
 const BookmarkList = ({ bookmarks }) => {
   return (
-    <div className="page-content position-relative container-lg p-responsive">
+    <div className="page-content position-relative container-lg p-responsive width-full">
       <h2 className="mb-3">Your bookmarks</h2>
 
-      <div className="Box Box--responsive hx_Box--firstRowRounded0" id="js-issues-toolbar" data-pjax="">
-        <div className="js-navigation-container js-active-navigation-container" data-issue-and-pr-hovercards-enabled="" data-repository-hovercards-enabled="">
+      <div className="Box Box--responsive hx_Box--firstRowRounded0" data-pjax="">
+        <div data-issue-and-pr-hovercards-enabled="" data-repository-hovercards-enabled="">
           {bookmarks.map(ListItem)}
         </div>
       </div>

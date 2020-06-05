@@ -15,7 +15,6 @@
     "@babel/preset-env": "^7.9.6",
     "@babel/runtime": "^7.9.6",
     "babel-loader": "^8.1.0",
-    "lit-html": "^1.2.1",
     "marked": "^1.0.0",
     "preact": "^10.4.4",
     "store2": "^2.11.2",

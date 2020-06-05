@@ -7,7 +7,7 @@ module.exports = {
   mode: IS_PRODUCTION_BUILD ? 'production' : 'development',
   devtool: IS_PRODUCTION_BUILD ? false : 'eval-source-map',
   entry: {
-    'bookmark-list': './src/pages/bookmark-list.js',
+    'bookmark-list': './src/pages/bookmarks/list/index.js',
     'bookmark-add': './src/pages/bookmark-add.js',
     'bookmark-show': './src/pages/bookmark-show.js',
     'bookmark-header-link': './src/pages/bookmark-header-link.js',

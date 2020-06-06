@@ -69,7 +69,7 @@ const addHeaderBookmarkAction = async () => {
   headerBookmarkBtn.addEventListener('click', handleBookmarkCreate);
 };
 
-const addBookmarkControl = async () => {
+const addBookmarkControl = () => {
   waitForUrl(/^\/.+?\/.+?\/blob\//)
     .then(() => {
       addTooltipBookmarkAction();

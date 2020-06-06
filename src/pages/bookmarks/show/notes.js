@@ -20,7 +20,10 @@ const updateHeight = (element) => {
 };
 
 /** @jsx h */
-const ShowNotes = ({ notes, id }) => {
+const ShowNotes = ({
+  notes = '',
+  id
+}) => {
   const [ editing, setEditing ] = useState(!notes);
   const [ notesValue, setNotesValue ] = useState(notes);
   const input = useRef();

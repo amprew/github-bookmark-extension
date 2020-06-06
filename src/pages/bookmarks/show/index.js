@@ -131,7 +131,7 @@ const Bookmarkshow = ({ bookmark }) => {
   )
 }
 
-(async () => {
+(() => {
   const [, id] = window.location.pathname.match(/_bookmark_\/(.+)/);
   const bookmark = findBookmark(id);
 
@@ -141,10 +141,13 @@ const Bookmarkshow = ({ bookmark }) => {
     return;
   }
 
-  const applicationMain = await waitForElement('.application-main', 10, 20);
-  applicationMain.className = 'application-main';
+  waitForElement('.application-main', 10, 20)
+    .then((applicationMain) => {
+      applicationMain.className = 'application-main';
 
-  render(<Bookmarkshow bookmark={bookmark} />, applicationMain.parentNode, applicationMain);
+      render(<Bookmarkshow bookmark={bookmark} />, applicationMain.parentNode, applicationMain);
 
-  document.title = 'Bookmarks';
+      document.title = 'Bookmarks';
+    })
+    .catch(() => {});
 })();

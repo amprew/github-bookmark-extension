@@ -33,7 +33,9 @@ jobs:
           mkdir -p /tmp/extension/images/icons
           cp -r ./images/icons/* /tmp/extension/images/icons/
       - run: apk add --upgrade --no-cache zip
-      - run: zip -rj /tmp/extension.zip /tmp/extension
+      - run: |
+          cd /tmp/
+          zip -r ./extension.zip ./extension
       - store_artifacts:
           path: /tmp/extension.zip
 workflows:

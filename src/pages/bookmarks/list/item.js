@@ -23,7 +23,7 @@ const ListItem = ({
           href={`https://github.com/${org}/${repo}`}>
           {org}/{repo}
         </a>
-        <a className="link-gray-dark v-align-middle no-underline h4" href={bookmarkPath(id)}>{title}</a>
+        <a className="link-gray-dark v-align-middle no-underline h4" href={bookmarkPath(id)}>{title || '(no title)'}</a>
 
         <div className="mt-1 text-small text-gray">
           <relative-time datetime={createdAt} className="no-wrap" title={new Date(createdAt)}></relative-time>

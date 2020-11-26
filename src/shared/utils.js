@@ -22,7 +22,7 @@ export const waitForTime = (milliseconds) => {
   });
 }
 
-export const waitForElement = async (selector, retries = 10, timeout = 50) => {
+export const waitForElement = async (selector, retries = 5, timeout = 500) => {
   if(retries <= 0) throw new Error(`Element not found: ${selector}.`);
 
   const element = document.querySelector(selector);
@@ -34,7 +34,7 @@ export const waitForElement = async (selector, retries = 10, timeout = 50) => {
   return await waitForElement(selector, retries - 1, timeout);
 };
 
-export const waitForElementText = async (selector, text, retries = 10, timeout = 50) => {
+export const waitForElementText = async (selector, text, retries = 4, timeout = 1000) => {
   if(retries <= 0) throw new Error(`Element not found: '${selector}' with text ${text}.`);
 
   const elements = Array.from(document.querySelectorAll(selector));
@@ -48,7 +48,7 @@ export const waitForElementText = async (selector, text, retries = 10, timeout =
   return await waitForElementText(selector, text, retries - 1, timeout);
 };
 
-export const waitForUrl = async (urlMatcher, retries = 5, timeout = 50) => {
+export const waitForUrl = async (urlMatcher, retries = 5, timeout = 500) => {
   if(retries <= 0) throw new Error(`URL never matched: '${urlMatcher}'.`);
 
   let match = false;

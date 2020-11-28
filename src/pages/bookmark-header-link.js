@@ -1,7 +1,7 @@
-import { waitForElementText } from '../shared/utils';
+import { waitForElementMutate } from '../shared/utils';
 
-(() => {
-  waitForElementText('.dropdown-item', 'Your gists')
+window.onload = function() {
+  waitForElementMutate(document.body, '.dropdown-item', 'Your gists')
     .then((gistHeaderLink) => {
       gistHeaderLink.insertAdjacentHTML(
         'afterend',
@@ -13,4 +13,4 @@ import { waitForElementText } from '../shared/utils';
       );
     })
     .catch(() => {});
-})();
+};

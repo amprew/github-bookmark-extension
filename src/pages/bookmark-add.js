@@ -1,8 +1,6 @@
-import { pageUpdateInit, waitForElement, waitForUrl } from '../shared/utils';
+import { pageUpdateInit, waitForElementMutate, waitForUrl } from '../shared/utils';
 
 import { addBookmark } from '../shared/bookmark';
-
-pageUpdateInit();
 
 const getCanonical = () => {
   const canonical = document.querySelector('link[rel="canonical"]')?.href;
@@ -35,7 +33,7 @@ const handleBookmarkCreate = (e) => {
 };
 
 const addTooltipBookmarkAction = async () => {
-  const list = await waitForElement('.BlobToolbar-dropdown', 5, 500);
+  const list = await waitForElementMutate(document.body, '.BlobToolbar-dropdown');
 
   // return if bookmark already added.
   const bookmarkButtonExists = document.querySelector('.js-add-bookmark');
@@ -51,7 +49,7 @@ const addTooltipBookmarkAction = async () => {
 };
 
 const addHeaderBookmarkAction = async () => {
-  const editButton = await waitForElement('.Box-header .octicon-trashcan', 10, 250);
+  const editButton = await waitForElementMutate(document.body, '.Box-header .octicon-trashcan');
 
   const listGroup = editButton.closest('.btn-octicon').parentNode;
 
@@ -78,10 +76,14 @@ const addBookmarkControl = () => {
     .catch(() => {});
 };
 
-addBookmarkControl();
+window.onload = function() {
+  pageUpdateInit();
 
-window.addEventListener("message", function(event) {
-  if (event.data === 'page-change') {
-    addBookmarkControl();
-  }
-});
+  addBookmarkControl();
+
+  window.addEventListener("message", function(event) {
+    if (event.data === 'page-change') {
+      addBookmarkControl();
+    }
+  });
+}

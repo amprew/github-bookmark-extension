@@ -48,6 +48,35 @@ export const waitForElementText = async (selector, text, retries = 4, timeout = 
   return await waitForElementText(selector, text, retries - 1, timeout);
 };
 
+export const waitForElementMutate = async (container, selector, text) => new Promise((resolve, reject) => {
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (!mutation.addedNodes) return
+
+      mutation.addedNodes.forEach((node) => {
+        if(!node.matches || !node.matches(selector)) {
+          return;
+        }
+
+        if(text && !node?.textContent?.includes(text)) {
+          return;
+        }
+
+        resolve(node);
+        observer.disconnect();
+      });
+    });
+  });
+  const config = {
+    childList: true,
+    subtree: true,
+    attributes: false,
+    characterData: false
+  };
+
+  observer.observe(container, config);
+});
+
 export const waitForUrl = async (urlMatcher, retries = 5, timeout = 500) => {
   if(retries <= 0) throw new Error(`URL never matched: '${urlMatcher}'.`);
 

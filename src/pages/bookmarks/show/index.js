@@ -1,10 +1,8 @@
 import { render, h } from 'preact';
 import { useState, useEffect, useRef } from 'preact/hooks';
 
-import { parseMd } from '../../../shared/markdown';
-
 import { updateBookmark, findBookmark, removeBookmark } from '../../../shared/bookmark';
-import { waitForElement } from '../../../shared/utils';
+import { waitForElementMutate } from '../../../shared/utils';
 
 import TextBox from '../../../shared/components/text-box';
 
@@ -131,7 +129,7 @@ const Bookmarkshow = ({ bookmark }) => {
   )
 }
 
-(() => {
+window.onload = function() {
   const [, id] = window.location.pathname.match(/_bookmark_\/(.+)/);
   const bookmark = findBookmark(id);
 
@@ -141,7 +139,7 @@ const Bookmarkshow = ({ bookmark }) => {
     return;
   }
 
-  waitForElement('.application-main', 10, 20)
+  waitForElementMutate(document.body, '.application-main')
     .then((applicationMain) => {
       applicationMain.className = 'application-main';
 
@@ -150,4 +148,4 @@ const Bookmarkshow = ({ bookmark }) => {
       document.title = 'Bookmarks';
     })
     .catch(() => {});
-})();
+};

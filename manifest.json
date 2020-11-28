@@ -1,7 +1,7 @@
 {
   "name": "Github Bookmarks",
   "short_name": "githubbookmarks",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "A Google Chrome extension for bookmarking your favourite snippets of code! Keep less in your head and learn more.",
   "homepage_url": "https://github.com/MountainDrew/github-bookmark-extension",
   "permissions": [

@@ -1,6 +1,6 @@
 import { waitForElementMutate } from '../shared/utils';
 
-window.onload = function() {
+window.addEventListener('load', function() {
   waitForElementMutate(document.body, '.dropdown-item', 'Your gists')
     .then((gistHeaderLink) => {
       gistHeaderLink.insertAdjacentHTML(
@@ -13,4 +13,4 @@ window.onload = function() {
       );
     })
     .catch(() => {});
-};
+});

@@ -3,7 +3,7 @@ import { render, h } from 'preact';
 import ListItem from './item';
 
 import { getAllBookmarks } from '../../../shared/bookmark';
-import { waitForElementMutate } from '../../../shared/utils';
+import { waitForElement } from '../../../shared/utils';
 
 /** @jsx h */
 const BookmarkList = ({ bookmarks }) => {
@@ -21,10 +21,10 @@ const BookmarkList = ({ bookmarks }) => {
 };
 
 
-window.onload = function() {
+window.addEventListener('load', function() {
   const bookmarks = getAllBookmarks();
 
-  waitForElementMutate(document.body, '.application-main')
+  waitForElement('.application-main', 10, 200)
     .then((applicationMain) => {
       applicationMain.className = 'application-main';
 
@@ -33,4 +33,4 @@ window.onload = function() {
       document.title = 'Bookmarks';
     })
     .catch(() => {});
-};
+});

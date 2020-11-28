@@ -49,6 +49,13 @@ export const waitForElementText = async (selector, text, retries = 4, timeout = 
 };
 
 export const waitForElementMutate = async (container, selector, text) => new Promise((resolve, reject) => {
+  const intialFind = container.querySelector(selector);
+
+  if(intialFind && (!text || intialFind.textContent.includes(text))) {
+    resolve(intialFind);
+    return;
+  }
+
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       if (!mutation.addedNodes) return

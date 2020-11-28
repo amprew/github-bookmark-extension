@@ -76,7 +76,7 @@ const addBookmarkControl = () => {
     .catch(() => {});
 };
 
-window.onload = function() {
+window.addEventListener('load', function() {
   pageUpdateInit();
 
   addBookmarkControl();
@@ -86,4 +86,4 @@ window.onload = function() {
       addBookmarkControl();
     }
   });
-}
+});

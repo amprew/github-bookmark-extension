@@ -1,16 +1,16 @@
-import { waitForElementMutate } from '../shared/utils';
+import {observe} from 'selector-observer';
 
-window.addEventListener('load', function() {
-  waitForElementMutate(document.body, '.dropdown-item', 'Your gists')
-    .then((gistHeaderLink) => {
-      gistHeaderLink.insertAdjacentHTML(
-        'afterend',
-        `
-          <a role="menuitem" class="dropdown-item" href="/_bookmarks_">
-            Your bookmarks
-          </a>
-        `
-      );
-    })
-    .catch(() => {});
+observe('.dropdown-item', {
+  add(el) {
+    if(el.textContent !== 'Your gists') return;
+
+    el.insertAdjacentHTML(
+      'afterend',
+      `
+        <a role="menuitem" class="dropdown-item" href="/_bookmarks_">
+          Your bookmarks
+        </a>
+      `
+    );
+  }
 });

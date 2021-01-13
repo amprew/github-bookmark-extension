@@ -100,3 +100,5 @@ export const waitForUrl = async (urlMatcher, retries = 5, timeout = 500) => {
 
   return await waitForUrl(urlMatcher, retries - 1, timeout);
 };
+
+export const removeAllElements = (selector) => [...document.querySelectorAll(selector)].forEach(e => e.parentNode.removeChild(e));

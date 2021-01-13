@@ -17,6 +17,7 @@
     "babel-loader": "^8.1.0",
     "marked": "^1.0.0",
     "preact": "^10.4.4",
+    "selector-observer": "^2.1.6",
     "store2": "^2.11.2",
     "terser-webpack-plugin": "^3.0.1",
     "uuid": "^8.0.0",

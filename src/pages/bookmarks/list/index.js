@@ -1,9 +1,10 @@
+import { observe } from 'selector-observer';
+
 import { render, h } from 'preact';
 
 import ListItem from './item';
 
 import { getAllBookmarks } from '../../../shared/bookmark';
-import { waitForElement } from '../../../shared/utils';
 
 /** @jsx h */
 const BookmarkList = ({ bookmarks }) => {
@@ -21,16 +22,14 @@ const BookmarkList = ({ bookmarks }) => {
 };
 
 
-window.addEventListener('load', function() {
-  const bookmarks = getAllBookmarks();
+const bookmarks = getAllBookmarks();
 
-  waitForElement('.application-main', 10, 200)
-    .then((applicationMain) => {
-      applicationMain.className = 'application-main';
+observe('.application-main', {
+  add(el) {
+    el.className = 'application-main';
 
-      render(<BookmarkList bookmarks={bookmarks} />, applicationMain.parentNode, applicationMain);
+    render(<BookmarkList bookmarks={bookmarks} />, el.parentNode, el);
 
-      document.title = 'Bookmarks';
-    })
-    .catch(() => {});
+    document.title = 'Bookmarks';
+  }
 });

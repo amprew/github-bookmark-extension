@@ -1,8 +1,9 @@
+import { observe } from 'selector-observer';
+
 import { render, h } from 'preact';
 import { useState, useEffect, useRef } from 'preact/hooks';
 
 import { updateBookmark, findBookmark, removeBookmark } from '../../../shared/bookmark';
-import { waitForElement } from '../../../shared/utils';
 
 import TextBox from '../../../shared/components/text-box';
 
@@ -129,23 +130,19 @@ const Bookmarkshow = ({ bookmark }) => {
   )
 }
 
-window.addEventListener('load', function() {
-  const [, id] = window.location.pathname.match(/_bookmark_\/(.+)/);
-  const bookmark = findBookmark(id);
+const [, id] = window.location.pathname.match(/_bookmark_\/(.+)/);
+const bookmark = findBookmark(id);
 
-  if(!bookmark) {
-    window.location.assign('/_bookmarks_');
+if(!bookmark) {
+  window.location.assign('/_bookmarks_');
+} else {
+  observe('.application-main', {
+    add(el) {
+      el.className = 'application-main';
 
-    return;
-  }
-
-  waitForElement('.application-main', 10, 200)
-    .then((applicationMain) => {
-      applicationMain.className = 'application-main';
-
-      render(<Bookmarkshow bookmark={bookmark} />, applicationMain.parentNode, applicationMain);
+      render(<Bookmarkshow bookmark={bookmark} />, el.parentNode, el);
 
       document.title = 'Bookmarks';
-    })
-    .catch(() => {});
-});
+    }
+  });
+}

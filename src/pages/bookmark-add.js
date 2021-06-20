@@ -80,7 +80,7 @@ const addBookmarkControl = () => {
         }
       });
 
-      cObserverIcon = observe('.Box-header .octicon-trashcan', {
+      cObserverIcon = observe('.Box-header .btn-octicon-danger', {
         initialize(el) {
           removeAllElements('[data-js-add-bm-header]');
           addHeaderBookmarkAction(el);

@@ -15,7 +15,7 @@
     "@babel/preset-env": "^7.9.6",
     "@babel/runtime": "^7.9.6",
     "babel-loader": "^8.1.0",
-    "marked": "^1.0.0",
+    "marked": "^4.0.10",
     "preact": "^10.4.4",
     "selector-observer": "^2.1.6",
     "store2": "^2.11.2",
